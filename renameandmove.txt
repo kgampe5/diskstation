@@ -1,0 +1,13 @@
+rsync -av --exclude=*eaDir* ../photo_alt/2007/ 2007
+sudo chown -R PhotoStation:PhotoStation 2007
+sudo chmod -R 775 2007
+synoindex -A 2007
+
+
+Rename Files IMG-*.jpg -> *.jpg:
+for f in Screenshot*.jpg; do mv "$f" "`echo $f | sed s/Screenshot-//`"; done
+
+for f in VID*.mp4; do mv "$f" "`echo $f | sed s/VID-//`"; done
+
+for f in IMG*.jpg; do mv "$f" "`echo $f | sed s/IMG-//`"; done
+
